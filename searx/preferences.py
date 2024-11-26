@@ -384,96 +384,96 @@ class Preferences:
 
         super().__init__()
 
-        self.key_value_settings: Dict[str, Setting] = {
-            # fmt: off
-            'categories': MultipleChoiceSetting(
-                ['general'],
-                locked=is_locked('categories'),
-                choices=categories + ['none']
-            ),
-            'language': SearchLanguageSetting(
-                settings['search']['default_lang'],
-                locked=is_locked('language'),
-                choices=settings['search']['languages'] + ['']
-            ),
-            'locale': EnumStringSetting(
-                settings['ui']['default_locale'],
-                locked=is_locked('locale'),
-                choices=list(LOCALE_NAMES.keys()) + ['']
-            ),
-            'autocomplete': EnumStringSetting(
-                settings['search']['autocomplete'],
-                locked=is_locked('autocomplete'),
-                choices=list(autocomplete.backends.keys()) + ['']
-            ),
-            'favicon_resolver': EnumStringSetting(
-                settings['search']['favicon_resolver'],
-                locked=is_locked('favicon_resolver'),
-                choices=list(favicons.proxy.CFG.resolver_map.keys()) + ['']
-            ),
-            'image_proxy': BooleanSetting(
-                settings['server']['image_proxy'],
-                locked=is_locked('image_proxy')
-            ),
-            'method': EnumStringSetting(
-                settings['server']['method'],
-                locked=is_locked('method'),
-                choices=('GET', 'POST')
-            ),
-            'safesearch': MapSetting(
-                settings['search']['safe_search'],
-                locked=is_locked('safesearch'),
-                map={
-                    '0': 0,
-                    '1': 1,
-                    '2': 2
-                }
-            ),
-            'theme': EnumStringSetting(
-                settings['ui']['default_theme'],
-                locked=is_locked('theme'),
-                choices=themes
-            ),
-            'results_on_new_tab': BooleanSetting(
-                settings['ui']['results_on_new_tab'],
-                locked=is_locked('results_on_new_tab')
-            ),
-            'doi_resolver': MultipleChoiceSetting(
-                [settings['default_doi_resolver'], ],
-                locked=is_locked('doi_resolver'),
-                choices=DOI_RESOLVERS
-            ),
-            'simple_style': EnumStringSetting(
-                settings['ui']['theme_args']['simple_style'],
-                locked=is_locked('simple_style'),
-                choices=['', 'auto', 'light', 'dark', 'black']
-            ),
-            'center_alignment': BooleanSetting(
-                settings['ui']['center_alignment'],
-                locked=is_locked('center_alignment')
-            ),
-            'advanced_search': BooleanSetting(
-                settings['ui']['advanced_search'],
-                locked=is_locked('advanced_search')
-            ),
-            'query_in_title': BooleanSetting(
-                settings['ui']['query_in_title'],
-                locked=is_locked('query_in_title')
-            ),
-            'infinite_scroll': BooleanSetting(
-                settings['ui']['infinite_scroll'],
-                locked=is_locked('infinite_scroll')
-            ),
-            'search_on_category_select': BooleanSetting(
-                settings['ui']['search_on_category_select'],
-                locked=is_locked('search_on_category_select')
-            ),
-            'hotkeys': EnumStringSetting(
-                settings['ui']['hotkeys'],
-                choices=['default', 'vim']
-            ),
-            # fmt: on
-        }
+        # self.key_value_settings: Dict[str, Setting] = {
+        #     # fmt: off
+        #     'categories': MultipleChoiceSetting(
+        #         ['general'],
+        #         locked=is_locked('categories'),
+        #         choices=categories + ['none']
+        #     ),
+        #     'language': SearchLanguageSetting(
+        #         settings['search']['default_lang'],
+        #         locked=is_locked('language'),
+        #         choices=settings['search']['languages'] + ['']
+        #     ),
+        #     'locale': EnumStringSetting(
+        #         settings['ui']['default_locale'],
+        #         locked=is_locked('locale'),
+        #         choices=list(LOCALE_NAMES.keys()) + ['']
+        #     ),
+        #     'autocomplete': EnumStringSetting(
+        #         settings['search']['autocomplete'],
+        #         locked=is_locked('autocomplete'),
+        #         choices=list(autocomplete.backends.keys()) + ['']
+        #     ),
+        #     'favicon_resolver': EnumStringSetting(
+        #         settings['search']['favicon_resolver'],
+        #         locked=is_locked('favicon_resolver'),
+        #         choices=list(favicons.proxy.CFG.resolver_map.keys()) + ['']
+        #     ),
+        #     'image_proxy': BooleanSetting(
+        #         settings['server']['image_proxy'],
+        #         locked=is_locked('image_proxy')
+        #     ),
+        #     'method': EnumStringSetting(
+        #         settings['server']['method'],
+        #         locked=is_locked('method'),
+        #         choices=('GET', 'POST')
+        #     ),
+        #     'safesearch': MapSetting(
+        #         settings['search']['safe_search'],
+        #         locked=is_locked('safesearch'),
+        #         map={
+        #             '0': 0,
+        #             '1': 1,
+        #             '2': 2
+        #         }
+        #     ),
+        #     'theme': EnumStringSetting(
+        #         settings['ui']['default_theme'],
+        #         locked=is_locked('theme'),
+        #         choices=themes
+        #     ),
+        #     'results_on_new_tab': BooleanSetting(
+        #         settings['ui']['results_on_new_tab'],
+        #         locked=is_locked('results_on_new_tab')
+        #     ),
+        #     'doi_resolver': MultipleChoiceSetting(
+        #         [settings['default_doi_resolver'], ],
+        #         locked=is_locked('doi_resolver'),
+        #         choices=DOI_RESOLVERS
+        #     ),
+        #     'simple_style': EnumStringSetting(
+        #         settings['ui']['theme_args']['simple_style'],
+        #         locked=is_locked('simple_style'),
+        #         choices=['', 'auto', 'light', 'dark', 'black']
+        #     ),
+        #     'center_alignment': BooleanSetting(
+        #         settings['ui']['center_alignment'],
+        #         locked=is_locked('center_alignment')
+        #     ),
+        #     'advanced_search': BooleanSetting(
+        #         settings['ui']['advanced_search'],
+        #         locked=is_locked('advanced_search')
+        #     ),
+        #     'query_in_title': BooleanSetting(
+        #         settings['ui']['query_in_title'],
+        #         locked=is_locked('query_in_title')
+        #     ),
+        #     'infinite_scroll': BooleanSetting(
+        #         settings['ui']['infinite_scroll'],
+        #         locked=is_locked('infinite_scroll')
+        #     ),
+        #     'search_on_category_select': BooleanSetting(
+        #         settings['ui']['search_on_category_select'],
+        #         locked=is_locked('search_on_category_select')
+        #     ),
+        #     'hotkeys': EnumStringSetting(
+        #         settings['ui']['hotkeys'],
+        #         choices=['default', 'vim']
+        #     ),
+        #     # fmt: on
+        # }
 
         self.engines = EnginesSetting('engines', engines=engines.values())
         self.plugins = PluginsSetting('plugins', plugins=plugins)

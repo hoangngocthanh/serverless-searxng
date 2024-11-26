@@ -26,3 +26,46 @@ searx/version_frozen.py
 .dir-locals.el
 
 .python-version
+
+# Python virtual environment
+venv/
+.venv/
+
+# Byte-compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Pipenv and virtualenv files
+Pipfile
+Pipfile.lock
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Serverless Framework
+.serverless/
+.slsignore
+
+# Docker
+*.env
+*.env.*
+docker-compose.override.yml
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+# AWS credential/config files (optional, unless explicitly required)
+*.aws/

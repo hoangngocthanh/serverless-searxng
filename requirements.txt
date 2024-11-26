@@ -20,3 +20,5 @@ msgspec==0.18.6
 eval_type_backport; python_version < '3.9'
 typer-slim==0.13.1
 isodate==0.7.2
+serverless-wsgi==3.0.5
+PyYAML>=6.0
